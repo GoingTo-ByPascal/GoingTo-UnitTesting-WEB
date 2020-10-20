@@ -18,16 +18,15 @@ namespace GoingTo_Testing.Steps
       _scenarioContext = scenarioContext;
     }
 
-    [Given(@"A List of historic places")]
-    public void GivenAListOfHistoricPlaces()
+    [Given(@"A List of places")]
+    public void GivenAListOfPlaces()
     {
       client = new RestClient("https://goingto.azurewebsites.net/api");
-      request = new RestRequest("/cities/{cityid}/places", Method.GET, DataFormat.Json);
-      request.AddUrlSegment("cityId", 1);
+      request = new RestRequest("/cities/places", Method.GET, DataFormat.Json);
     }
 
-    [When(@"I select {one}")]
-    public void WhenISelectOne()
+    [When(@"I select {place}")]
+    public void WhenISelectAPlace()
     {
       response = client.Execute(request);
     }
@@ -37,20 +36,6 @@ namespace GoingTo_Testing.Steps
     {
       int statusCode = (int) response.StatusCode;
       Assert.AreEqual(status, statusCode, "Status code is not 200 causa");
-    }
-
-    [Given(@" A place that is show")]
-    public void GivenAPlaceThatIsShow()
-    {
-      client = new RestClient("https://goingto.azurewebsites.net/api");
-      request = new RestRequest("/cities/{cityid}/places", Method.GET, DataFormat.Json);
-      request.AddUrlSegment("cityId", 1);
-    }
-
-    [When(@"Select a { place }")]
-    public void WhenISelectAPlace()
-    {
-      response = client.Execute(request);
     }
   }
 }
