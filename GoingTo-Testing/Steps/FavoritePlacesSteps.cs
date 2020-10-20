@@ -35,7 +35,7 @@ namespace GoingTo_Testing.Steps
     public void ThenTheResultCodeshouldBe(int status)
     {
       int statusCode = (int) response.StatusCode;
-      Assert.AreEqual(status, statusCode, "Status code is not 200 causa");
+      Assert.AreEqual(status, statusCode);
     }
   }
 }
