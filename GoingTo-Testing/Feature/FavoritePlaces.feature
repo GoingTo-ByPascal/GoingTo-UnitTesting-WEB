@@ -10,6 +10,6 @@ Scenario: Save a place as favorite
 	Then the result should be 200
 
 Scenario: failed save place as favorite
-	Given A place that is show
+	Given A List of places
 	When Select a {place}
 	Then the result should be 400
