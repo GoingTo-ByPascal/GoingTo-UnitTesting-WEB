@@ -23,7 +23,7 @@ namespace GoingTo_Testing.Steps
         [Given(@"I search for places by city")]
         public void GivenISearchForPlacesByCity()
         {
-            client = new RestClient("https://goingto.azurewebsites.net/api");
+            client = new RestClient("https://api-goingto.azurewebsites.net/api");
             request = new RestRequest("/cities/{cityid}/places", Method.GET, DataFormat.Json);
             request.AddUrlSegment("cityId", 1);
         }

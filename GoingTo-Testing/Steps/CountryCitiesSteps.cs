@@ -23,7 +23,8 @@ namespace GoingTo_Testing.Steps
         [Given(@"I have use the Get verb filtering  by country")]
         public void GivenIHaveUseTheGetVerbFilteringByCountry()
         {
-            client = new RestClient("https://goingto.azurewebsites.net/api");
+            
+            client = new RestClient("https://api-goingto.azurewebsites.net/api");
             request = new RestRequest("/countries/{countryid}/cities", Method.GET, DataFormat.Json);
             request.AddUrlSegment("countryId", 1);
         }
