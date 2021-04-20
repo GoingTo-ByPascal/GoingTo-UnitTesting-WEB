@@ -22,7 +22,7 @@ namespace GoingTo_Testing.Feature
         public void GivenISearchForSystemsSAchievements()
         {
             request = new RestRequest("/achievements", Method.GET, DataFormat.Json);
-            client = new RestClient("https://api-goingto.azurewebsites.net/api");
+            client = new RestClient("https://goingto-api.azurewebsites.net/api");
         }
         [When(@"I interact with the system")]
         public void WhenIInteractWithTheSystem()
