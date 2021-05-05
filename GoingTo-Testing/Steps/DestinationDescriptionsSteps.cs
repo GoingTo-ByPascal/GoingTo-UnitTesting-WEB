@@ -6,7 +6,7 @@ using TechTalk.SpecFlow;
 namespace GoingTo_Testing.Steps
 {
     [Binding]
-    public class LocatableSteps
+    public class DestinationDescriptionsSteps
     {
         private RestClient client;
         private RestRequest request;
@@ -14,28 +14,30 @@ namespace GoingTo_Testing.Steps
 
         private ScenarioContext _scenarioContext;
 
-        public LocatableSteps(ScenarioContext scenarioContext)
+        public DestinationDescriptionsSteps(ScenarioContext scenarioContext) 
         {
             _scenarioContext = scenarioContext;
         }
-        [Given(@"I search for a locatable with the GET verb")]
-        public void GivenISearchForALocatableWithTheGETVerb()
+
+        [Given(@"I'm looking for a description of a destination")]
+        public void GivenIMLookingForADescriptionOfADestination()
         {
-            request = new RestRequest("/locatables", Method.GET, DataFormat.Json);
             client = new RestClient("https://api-goingto.azurewebsites.net/api");
+            request = new RestRequest("/locatables/{locatableid}", Method.GET, DataFormat.Json);
+            request.AddUrlSegment("locatableid", 1);
         }
         
-        [When(@"I execute the request")]
+        [When(@"I  execute the request")]
         public void WhenIExecuteTheRequest()
         {
             response = client.Execute(request);
         }
         
-        [Then(@"the result should be (.*)")]
+        [Then(@"the  result should be (.*)")]
         public void ThenTheResultShouldBe(int status)
         {
             int statusCode = (int)response.StatusCode;
-            Assert.AreEqual(status, statusCode, "Status code is not 200 causa");
+            Assert.AreEqual(status, statusCode, "Status code is not 200");
         }
     }
 }
