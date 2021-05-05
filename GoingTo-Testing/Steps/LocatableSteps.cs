@@ -22,7 +22,7 @@ namespace GoingTo_Testing.Steps
         public void GivenISearchForALocatableWithTheGETVerb()
         {
             request = new RestRequest("/locatables", Method.GET, DataFormat.Json);
-            client = new RestClient("https://goingto.azurewebsites.net/api");
+            client = new RestClient("https://goingto-api.azurewebsites.net/api");
         }
         
         [When(@"I execute the request")]
