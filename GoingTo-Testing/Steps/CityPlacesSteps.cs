@@ -24,7 +24,7 @@ namespace GoingTo_Testing.Steps
         public void GivenISearchForPlacesByCity()
         {
             client = new RestClient("https://goingto-api.azurewebsites.net/api");
-            request = new RestRequest("/cities/{cityid}/places", Method.GET, DataFormat.Json);
+            request = new RestRequest("/cities/{cityId}/places", Method.GET, DataFormat.Json);
             request.AddUrlSegment("cityId", 1);
         }
         

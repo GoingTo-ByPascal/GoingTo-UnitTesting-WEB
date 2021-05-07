@@ -6,10 +6,10 @@
 @mytag
 Scenario: Save a place as favorite
 	Given A List of places
-	When I select {place}
-	Then the result should be 200
+	When I select 1
+	Then the result should  be 204
 
 Scenario: failed save place as favorite
-	Given A List of places
-	When Select a {place}
-	Then the result should be 400
+	Given A List of  places
+	When I Select a the place with id 999
+	Then the result should  be 400
