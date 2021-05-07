@@ -22,8 +22,8 @@ namespace GoingTo_Testing.Steps
         [Given(@"I'm looking for a description of a destination")]
         public void GivenIMLookingForADescriptionOfADestination()
         {
-            client = new RestClient("https://api-goingto.azurewebsites.net/api");
-            request = new RestRequest("/locatables/{locatableid}", Method.GET, DataFormat.Json);
+            client = new RestClient("https://goingto-api.azurewebsites.net//api");
+            request = new RestRequest("/Locatables/{locatableid}", Method.GET, DataFormat.Json);
             request.AddUrlSegment("locatableid", 1);
         }
         
