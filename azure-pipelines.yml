@@ -43,10 +43,19 @@ jobs:
       arguments: --configuration $(BuildConfiguration)
   
   - task: VSTest@2
+    displayName: "Server run unit test"  
     inputs:
-      testSelector: 'testRun'
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: |
+        **\GoingTo-Testing.*test*.dll
+        !**\*TestAdapter.dll
+        !**\obj\**
       searchFolder: '$(System.DefaultWorkingDirectory)'
-      vsTestVersion: '16.0'
+      runOnlyImpactedTests: false
+      runTestsInIsolation: true
+      codeCoverageEnabled: true
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
     displayName: Test
